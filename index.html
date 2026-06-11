@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balança Contábil — Módulo 2</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="intro" id="intro">
+  <h1>⚖️ Jogo da Balança Contábil</h1>
+  <h2>Logos Concursos — Módulo 2</h2>
+
+  <p>
+    Bem-vindo(a) ao <strong>Módulo 2</strong>!<br>
+    O balanço continua de onde o Módulo 1 parou.
+  </p>
+
+  <p>
+    Você vai praticar novos lançamentos:<br>
+    compras financiadas, pagamentos e recebimentos.
+  </p>
+
+  <p>
+    Arraste cada conta para o lugar correto
+    e observe a balança contábil.
+  </p>
+
+  <button onclick="mostrarCadastro()">Iniciar Módulo 2</button>
+</div>
+
+<div class="intro" id="registro" style="display:none;">
+  <h1>⚖️ Jogo da Balança Contábil</h1>
+  <h2>Logos Concursos — Módulo 2</h2>
+  <p>Preencha seus dados para começar:</p>
+
+  <div class="cadastro-form">
+    <input type="text"  id="inputNome"  placeholder="Seu nome completo" />
+    <input type="email" id="inputEmail" placeholder="Seu e-mail" />
+    <div id="cadastroErro" class="cadastro-erro"></div>
+    <button onclick="iniciarComCadastro()">▶ Começar</button>
+  </div>
+</div>
+
+<div class="game" id="game" style="display:none;">
+
+  <h1>⚖️ Balança Contábil</h1>
+
+  <div class="mission" id="missionBox"></div>
+
+  <div class="cards" id="cards"></div>
+  
+
+  <div class="platform" id="ativoBox"
+  onclick="tapDrop('ativo')"
+  ondragover="allowDrop(event)"
+  ondrop="drop(event, 'ativo')">
+    <h2>ATIVO</h2>
+    <div id="ativoItems"></div>
+    <div class="total">Total: R$ <span id="ativoTotal">0</span></div>
+  </div>
+
+  <div class="right-column">
+    <div class="platform" id="passivoBox"
+    onclick="tapDrop('passivo')"
+    ondragover="allowDrop(event)"
+    ondrop="drop(event, 'passivo')">
+      <h2>PASSIVO</h2>
+      <div id="passivoItems"></div>
+      <div class="total">Total: R$ <span id="passivoTotal">0</span></div>
+    </div>
+
+    <div class="platform" id="plBox"
+    onclick="tapDrop('pl')"
+    ondragover="allowDrop(event)"
+    ondrop="drop(event, 'pl')">
+      <h2>PL</h2>
+      <h3>Contas do PL</h3>
+      <div id="plItems"></div>
+
+      <div id="redutoraArea" style="display:none;">
+        <hr>
+        <h3>Contas Redutoras do PL</h3>
+        <div id="redutoraItems"></div>
+      </div>
+
+      <div class="total">PL Líquido: R$ <span id="plTotal">0</span></div>
+
+      <div class="total total-direito">
+        Passivo + PL: R$ <span id="passivoPLTotal">0</span>
+      </div>
+    </div>
+  </div>
+  <div class="equacao">
+      Ativo: R$ <span id="ativoEq">0</span>
+      =
+      Passivo + PL: R$ <span id="ladoDireitoEq">0</span>
+    </div>
+
+  <div class="balance-area">
+    <div class="scale-visual" id="beam">
+      <div class="scale-arm"></div>
+
+      <div class="chain left-chain"></div>
+      <div class="chain right-chain"></div>
+
+      <div class="plate left-plate"></div>
+      <div class="plate right-plate"></div>
+    </div>
+
+    <div class="base"></div>
+
+    
+  </div>
+
+  <div class="feedback" id="feedback"></div>
+
+  <div class="explanation" id="explanation"></div>
+
+  <div class="actions">
+  <button id="nextBtn" onclick="nextMission()" disabled>
+    ➡ Próxima Missão
+  </button>
+
+  <button onclick="resetGame()">Reiniciar</button>
+</div>
+  </div>
+    <script  src="./script.js"></script>
+
+  <footer class="rodape-copyright">
+    © 2026 Logos Concursos — Jogo da Balança Contábil. Todos os direitos reservados.<br>
+    Desenvolvido por Adriane Gomes | logosconcursos.com.br
+  </footer>
+
+  </body>
+
+</html>
