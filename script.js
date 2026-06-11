@@ -1,8 +1,30 @@
 // Cole aqui a URL do seu Google Apps Script após configurar
 const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyw_Pr0twNyOaHdUlKAZX0E5kfKSAbxA_PQ3i1dSIoV9ZdKycXJ4ZpZU6eHyts0rRhJ/exec";
+const SENHA_ACESSO = "logoscontabil26";
 
 let alunoNome  = "";
 let alunoEmail = "";
+
+function verificarSenha() {
+  const senha = document.getElementById("inputSenha").value.trim();
+  const erro  = document.getElementById("senhaErro");
+  if (senha === SENHA_ACESSO) {
+    document.getElementById("senha").style.display = "none";
+    document.getElementById("intro").style.display = "block";
+  } else {
+    erro.innerText = "Senha incorreta. Tente novamente.";
+    document.getElementById("inputSenha").value = "";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const inputSenha = document.getElementById("inputSenha");
+  if (inputSenha) {
+    inputSenha.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") verificarSenha();
+    });
+  }
+});
 
 function mostrarCadastro() {
   document.getElementById("intro").style.display = "none";
