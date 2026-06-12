@@ -147,6 +147,54 @@ h1, h2, h3 {
   border-left: 5px solid #b3261e;
 }
 
+/* === GRUPOS DE CONTAS === */
+.account-group {
+  padding: 8px 10px;
+  margin: 6px 0;
+  border-radius: 8px;
+  background: #eef3fa;
+  border-left: 5px solid #0b2a5b;
+}
+
+.account-group-name {
+  font-size: 13px;
+  font-weight: bold;
+  color: #0b2a5b;
+  margin-bottom: 4px;
+}
+
+.account-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.account-entry {
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.entry-normal {
+  color: #0b2a5b;
+  font-weight: bold;
+}
+
+.entry-redutora {
+  color: #b3261e;
+  font-weight: bold;
+}
+
+.account-subtotal {
+  font-size: 12px;
+  font-weight: bold;
+  color: #444;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px dashed #aaa;
+  display: none;
+}
+
 .total {
   margin-top: 12px;
   font-weight: bold;
