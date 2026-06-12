@@ -250,16 +250,16 @@ function drop(event, targetSide) {
 
   if (action === "veiculos10000")       { ativoTotal += value;  addItem("ativoItems", name); }
   if (action === "financiamento10000")  { passivoTotal += value; addItem("passivoItems", name); }
-  if (action === "fornecedoresPag500")  { passivoTotal -= value; addItem("passivoItems", "(-) " + name.split("\n")[0]); }
-  if (action === "bancoPag500")         { ativoTotal -= value;   addItem("ativoItems",   "(-) " + name.split("\n")[0]); }
+  if (action === "fornecedoresPag500")  { passivoTotal -= value; addItem("passivoItems", "(-) " + name.split("\n")[0] + "\nR$ " + format(value), true); }
+  if (action === "bancoPag500")         { ativoTotal -= value;   addItem("ativoItems",   "(-) " + name.split("\n")[0] + "\nR$ " + format(value), true); }
   if (action === "estoques1000")        { ativoTotal += value;   addItem("ativoItems", name); }
   if (action === "fornecedores1000")    { passivoTotal += value; addItem("passivoItems", name); }
   if (action === "clientesReceber2000") { ativoTotal += value;   addItem("ativoItems", name); }
-  if (action === "estoquesBaixa2000")   { ativoTotal -= value;   addItem("ativoItems",   "(-) " + name.split("\n")[0]); }
+  if (action === "estoquesBaixa2000")   { ativoTotal -= value;   addItem("ativoItems",   "(-) " + name.split("\n")[0] + "\nR$ " + format(value), true); }
   if (action === "bancoReceb2000")      { ativoTotal += value;   addItem("ativoItems", name); }
-  if (action === "clientesBaixa2000")   { ativoTotal -= value;   addItem("ativoItems",   "(-) " + name.split("\n")[0]); }
-  if (action === "fornecedoresPag8000") { passivoTotal -= value; addItem("passivoItems", "(-) " + name.split("\n")[0]); }
-  if (action === "bancoPag8000")        { ativoTotal -= value;   addItem("ativoItems",   "(-) " + name.split("\n")[0]); }
+  if (action === "clientesBaixa2000")   { ativoTotal -= value;   addItem("ativoItems",   "(-) " + name.split("\n")[0] + "\nR$ " + format(value), true); }
+  if (action === "fornecedoresPag8000") { passivoTotal -= value; addItem("passivoItems", "(-) " + name.split("\n")[0] + "\nR$ " + format(value), true); }
+  if (action === "bancoPag8000")        { ativoTotal -= value;   addItem("ativoItems",   "(-) " + name.split("\n")[0] + "\nR$ " + format(value), true); }
 
   updateBalance();
   checkMissionComplete();
