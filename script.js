@@ -511,14 +511,19 @@ function onTouchStart(e) {
   if (!card) return;
   e.preventDefault();
   touchDragCard = card;
-  const rect = card.getBoundingClientRect();
+  const touch = e.touches[0];
+  const cloneWidth = Math.min(card.offsetWidth, 120);
   touchClone = card.cloneNode(true);
   touchClone.style.cssText = `
-    position:fixed; width:${rect.width}px; left:${rect.left}px; top:${rect.top}px;
-    opacity:0.85; pointer-events:none; z-index:9999;
-    transform:scale(1.06) rotate(2deg);
-    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+    position:fixed;
+    width:${cloneWidth}px;
+    left:${touch.clientX - cloneWidth / 2}px;
+    top:${touch.clientY - 30}px;
+    opacity:0.88; pointer-events:none; z-index:9999;
+    transform:rotate(2deg);
+    box-shadow:0 8px 24px rgba(0,0,0,0.3);
     border-radius:10px; background:#dbeafe; border:2px solid #3b82f6;
+    font-size:11px;
   `;
   document.body.appendChild(touchClone);
   card.style.opacity = '0.35';
@@ -529,7 +534,7 @@ function onTouchMove(e) {
   e.preventDefault();
   const touch = e.touches[0];
   touchClone.style.left = (touch.clientX - touchClone.offsetWidth  / 2) + 'px';
-  touchClone.style.top  = (touch.clientY - touchClone.offsetHeight / 2) + 'px';
+  touchClone.style.top  = (touch.clientY - touchClone.offsetHeight / 2 - 10) + 'px';
   ['ativoBox','passivoBox','plBox'].forEach(pid => {
     const el = $(pid); if (!el) return;
     const r = el.getBoundingClientRect();
