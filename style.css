@@ -660,7 +660,7 @@ hr {
     display: contents;
   }
 
-  #ativoBox   { grid-area: ativo; }
+  #ativoBox   { grid-area: ativo;   align-self: stretch; }
   #passivoBox { grid-area: passivo; }
   #plBox      { grid-area: pl; }
 
